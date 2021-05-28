@@ -1,0 +1,14 @@
+{
+  "name": "stivehu/base64image",
+  "description": "Adds images from local client as base64 string into the source without server side processing.",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Gábor István",
+      "email": "stive.hu@gmail.com"
+    }
+  ],
+  "require": {
+  }
+}
