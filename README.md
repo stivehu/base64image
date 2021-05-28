@@ -11,11 +11,29 @@ The Browser must support the JavaScript File API.
 
 ## Installation
 
- 1. Download the plugin from http://github.com/nmmf/base64image
+ 1. Download the plugin from http://github.com/stivehu/base64image
  
- 2. Extract (decompress) the downloaded file into the plugins folder of your
-	CKEditor installation.
-	Example: http://example.com/ckeditor/plugins/base64image
-	
- 3. Enable the plugin by using the extraPlugins configuration setting.
-	Example: CKEDITOR.config.extraPlugins = "base64image";
+ 2. Either run
+```
+php composer.phar require --prefer-dist stivehu/base64image "*"
+```
+or add
+```
+"stivehu/base64image": "*"
+```
+
+ 3. Add your composer.json this lines: 
+```
+  "scripts": {
+    "post-update-cmd": [
+      "cp -r vendor/stivehu/base64image vendor/ckeditor/ckeditor/plugins/base64image",
+      "sed -i 's/^};$/};\\nCKEDITOR.config.extraPlugins = \"base64image\";/g' vendor/ckeditor/ckeditor/config.js",
+      "awk -i inplace '!a[$0]++'  vendor/ckeditor/ckeditor/config.js"
+    ],
+    "post-install-cmd": [
+      "cp -r vendor/stivehu/base64image vendor/ckeditor/ckeditor/plugins/base64image",
+      "sed -i 's/^};$/};\\nCKEDITOR.config.extraPlugins = \"base64image\";/g' vendor/ckeditor/ckeditor/config.js",
+      "awk -i inplace '!a[$0]++'  vendor/ckeditor/ckeditor/config.js"
+    ]
+  },
+```
