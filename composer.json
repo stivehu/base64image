@@ -1,6 +1,6 @@
 {
   "name": "stivehu/base64image",
-  "description": "Adds images from local client as base64 string into the source without server side processing.",
+  "description": "ckeditor plugin. Adds images from local client as base64 string into the source without server side processing.",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
@@ -10,5 +10,14 @@
     }
   ],
   "require": {
+    "ckeditor/ckeditor": "*"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "cp -r vendor/stivehu/base64image vendor/ckeditor/ckeditor/plugins/base64image"
+    ],
+    "post-install-cmd": [
+      "cp -r vendor/stivehu/base64image vendor/ckeditor/ckeditor/plugins/base64image"
+    ]
   }
 }
